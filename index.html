@@ -6,53 +6,173 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Welcome To JavaScript Bootcamp</h1>
-    <h2>assignment 1</h2>
-  </body>
-  <script>
-    ////assignment1
-    //let fruits = [];
-    //fruits.push("apple", "banana", "orange");
-    //fruits.splice(0, 1);
-    //fruits.push("grape");
-    //fruits.splice(fruits.length, 0, "grape");
-    //fruits.splice(1, 1, "pear");
-    //console.log(fruits);
-
-    //  //  Assignment 2
-    //let person = {};
-    //person.name = "john";
-    //person.age = 30;
-    //person.city = "New York";
-    //delete person.age;
-    //person.job = "Engineer";
-    //person.city = "San Francisco";
-    //console.log(person);
-
-    //Assignment 3
-    let cars = [];
-    cars.push(
-      {
-        make: "Toyota",
-        model: "Camry",
-        year: 2018,
-      },
-      {
-        make: "Toyota",
-        model: "Camry",
-        year: 2018,
-      },
-      {
-        make: "Toyota",
-        model: "Camry",
-        year: 2018,
+    <p>How to Javascript : Assignment 2</p>
+    <h1>Assignment 1</h1>
+    <script>
+      function numbervalue(num) {
+        if (num > 0) {
+          console.log("positive");
+        }
+        if (num < 0) {
+          console.log("negative");
+        }
+        if (num == 0) {
+          console.log("zero");
+        }
       }
-    );
 
-    cars.pop(0);
-    cars.push({ make: "Honda", model: "Civic", year: 2020 });
-    cars[1].model = "Accord";
+      numbervalue(0);
+      function factorial(num) {
+        if (num <= 1) {
+          return 1;
+        }
+        product = num * factorial(num - 1);
+        return product;
+      }
 
-    console.log(cars);
-  </script>
+      console.log(factorial(0));
+
+      function larger(num1, num2) {
+        if (num1 > num2) {
+          return num1;
+        }
+        if (num1 < num2) {
+          return num2;
+        } else {
+          return "both are equal";
+        }
+      }
+
+      console.log(larger(5, 5));
+      function reverse(item) {
+        let reversed = "";
+        for (let i = item.length - 1; i >= 0; i--) {
+          reversed += item[i];
+        }
+        return reversed;
+      }
+
+      function ispalindrome(item) {
+        if (item == reverse(item)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(ispalindrome(""));
+
+      function primeNumbers(num) {
+        let primeNumbers = [];
+
+        for (let i = 2; i <= num; i++) {
+          let isPrime = true;
+
+          for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+
+          if (isPrime) {
+            primeNumbers.push(i);
+          }
+        }
+
+        return primeNumbers;
+      }
+
+      console.log(primeNumbers(11));
+
+      function calculator(num1, num2, operator) {
+        if (operator == "+") {
+          return num1 + num2;
+        }
+        if (operator == "-") {
+          return num1 - num2;
+        }
+        if (operator == "*") {
+          return num1 * num2;
+        }
+        if (operator == "/") {
+          if (num2 == 0) {
+            return "invalid";
+          }
+          return num1 / num2;
+        }
+      }
+
+      console.log(calculator(5, 0, "/"));
+
+      function vowels(string) {
+        let count = 0;
+
+        for (let k = 0; k < string.length; k++) {
+          const lowercaseChar = string[k].toLowerCase();
+          if (
+            lowercaseChar === "a" ||
+            lowercaseChar === "e" ||
+            lowercaseChar === "i" ||
+            lowercaseChar === "o" ||
+            lowercaseChar === "u"
+          ) {
+            count += 1;
+          }
+        }
+
+        return count;
+      }
+      console.log(vowels("poorna"));
+
+      function isPerfectNumber(num) {
+        if (num <= 0) {
+          return false;
+        }
+        let sumOfDivisors = 0;
+        for (let i = 1; i < num; i++) {
+          if (num % i === 0) {
+            sumOfDivisors += i;
+          }
+        }
+
+        return sumOfDivisors === num;
+      }
+
+      console.log("isPerfectNumber", isPerfectNumber(6));
+
+      function fibonacciSeries(n) {
+        if (n <= 0) {
+          console.log("need +ve number");
+          return;
+        }
+        let a = 0;
+        let b = 1;
+        console.log("Fibonacci series up to " + n + ":");
+        console.log(a);
+        for (let i = 1; b <= n; i++) {
+          console.log(b);
+          const next = a + b;
+          a = b;
+          b = next;
+        }
+      }
+      console.log("fibonacciSeries", fibonacciSeries(5));
+
+      function multiplicationTable(n) {
+        if (n <= 0) {
+          console.log("only +ve number needed");
+          return;
+        }
+
+        console.log("Multiplication table for " + n + ":");
+
+        for (let i = 1; i <= 10; i++) {
+          console.log(n + " x " + i + " = " + n * i);
+        }
+      }
+
+      multiplicationTable(7);
+    </script>
+  </body>
 </html>
